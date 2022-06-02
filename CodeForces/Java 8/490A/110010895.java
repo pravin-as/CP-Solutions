@@ -1,0 +1,119 @@
+//This code is written by प्रविण शंखपाळ 
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Stack;
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.List;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.StringTokenizer;
+import java.util.Vector;
+import javafx.util.Pair;
+
+public class Dobby {
+
+	public static void main(String[] args) {
+
+		try
+
+		{
+			FastReader fr = new FastReader();
+			int n = fr.nextInt();
+			int A[] = new int[n + 1];
+			for (int i = 1; i <= n; i++) {
+				A[i] = fr.nextInt();
+			}
+			ArrayList<Integer> x = new ArrayList<>();
+			x.add(-1);
+			ArrayList<Integer> y = new ArrayList<>();
+			y.add(-1);
+			ArrayList<Integer> z = new ArrayList<>();
+			z.add(-1);
+			for (int i = 1; i <= n; i++) {
+
+				if (A[i] == 1) {
+					x.add(i);
+				} else if (A[i] == 2) {
+					y.add(i);
+				} else {
+					z.add(i);
+				}
+
+			}
+
+			int k = Math.min(x.size(), Math.min(y.size(), z.size()));
+			System.out.println(k - 1);
+
+			for (int i = 1; i < k; i++) {
+
+				System.out.print(x.get(i) + " " + y.get(i) + " " + z.get(i));
+				System.out.println();
+
+			}
+
+			System.out.println();
+
+		} catch (
+
+		Exception e) {
+			return;
+		}
+
+	}
+
+	static class FastReader {
+		BufferedReader br;
+		StringTokenizer st;
+
+		public FastReader() {
+			br = new BufferedReader(new InputStreamReader(System.in));
+		}
+
+		String next() {
+			while (st == null || !st.hasMoreElements()) {
+				try {
+					st = new StringTokenizer(br.readLine());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return st.nextToken();
+		}
+
+		int nextInt() {
+			return Integer.parseInt(next());
+		}
+
+		long nextLong() {
+			return Long.parseLong(next());
+		}
+
+		double nextDouble() {
+			return Double.parseDouble(next());
+		}
+
+		String nextLine() {
+			String str = "";
+			try {
+				str = br.readLine();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return str;
+		}
+	}
+}
